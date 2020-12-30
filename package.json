@@ -1,5 +1,5 @@
 {
-  "name": "v6",
+  "name": "vite-demo",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
