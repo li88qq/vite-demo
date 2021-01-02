@@ -8,7 +8,7 @@ module.exports  = {
     alias: {
         '/@/': path.resolve(__dirname, './src')
     },
-    port: process.env['VITE-PORT'],
+    port: process.env.VITE_PORT,
 
     cssPreprocessOptions: {
         less: {
@@ -19,4 +19,11 @@ module.exports  = {
             javascriptEnabled: true,
         },
     },
+    optimizeDeps:{
+      include:['mockjs']
+    },
+    proxy: {
+        // string shorthand
+        '/api': 'http://www.li88qq.com'
+    }
 };

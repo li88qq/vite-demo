@@ -1,5 +1,8 @@
 <template>
-    <div>首页</div>
+    <div>
+        <h1>首页</h1>
+        <router-link to="'/test">测试页面</router-link>
+    </div>
 </template>
 
 <script lang="ts">
