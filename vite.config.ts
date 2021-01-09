@@ -24,6 +24,11 @@ module.exports  = {
     },
     proxy: {
         // string shorthand
-        '/api': 'http://www.li88qq.com'
+        // '/api': 'http://127.0.0.1:8080'
+        '/api': {
+            target: 'http://www.li88qq.com',
+            changeOrigin: true,
+            rewrite: path => path.replace(/^\/api/, '/api')
+        }
     }
 };

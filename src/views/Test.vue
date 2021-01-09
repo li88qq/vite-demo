@@ -22,18 +22,18 @@
 
             //axios请求
             const test = () => {
-                http.get('/api/p/doc', {params: {id: 28}}).then((data) => {
+                http.get('/api/p/docs', {}).then((data) => {
                     textData.text = data.data
-                }).catch((err) => {
-                    message.error('请求失败')
+                },(err) => {
+                    message.error('请求失败!'+err.message)
                 })
             }
             //mock测试
             const testMockUrl = () => {
                 http.get('/mock/test').then((data) => {
                     textData.text = data.data
-                }).catch((err) => {
-                    message.error('请求失败')
+                },(err) => {
+                    message.error('请求失败!'+err.message)
                 })
             }
             //清空
