@@ -1,5 +1,6 @@
 <template>
     <div>
+        <img src="/@/assets/husky.jpg" />
         <a-row class="btn">
             <a-button type="primary" @click="test">axios测试</a-button>
             <a-button type="primary" @click="testMockUrl">测试mock</a-button>
