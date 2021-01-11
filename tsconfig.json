@@ -1,1 +1,42 @@
-{}
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "moduleResolution": "node",
+//    "strict": true,
+//    "forceConsistentCasingInFileNames": true,
+//    "allowSyntheticDefaultImports": true,
+//    "strictFunctionTypes": false,
+//    "jsx": "react",
+    "baseUrl": ".",
+    "allowJs": true,
+    "sourceMap": false,
+//    "esModuleInterop": true,
+//    "noUnusedLocals": true,
+//    "noUnusedParameters": true,
+//    "experimentalDecorators": true,
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+//    "incremental": true,
+//    "skipLibCheck": true,
+    "paths": {
+      "/@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "plugins": [
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.js"
+  ]
+}

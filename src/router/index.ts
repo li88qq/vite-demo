@@ -4,6 +4,7 @@ const routes = [
     {path: '/', name: 'Index', component: () => import('/@/views/Index.vue')},
     {path: '/test', name: 'Test', component: () => import('/@/views/Test.vue')},
     {path: '/tableTest', name: 'TableTest', component: () => import('/@/views/TableTest.vue')},
+    {path: '/vditor', name: 'Vditor', component: () => import('/@/views/Vditor.vue')}
 ]
 
 const router = createRouter({

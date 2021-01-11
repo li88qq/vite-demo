@@ -4,6 +4,8 @@
         <router-link to="'/test">测试页面</router-link>
         <hr/>
         <router-link to="'/tableTest">table测试</router-link>
+        <hr/>
+        <router-link to="'/vditor">vditor测试</router-link>
     </div>
 </template>
 
