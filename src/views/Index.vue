@@ -6,6 +6,8 @@
         <router-link to="'/tableTest">table测试</router-link>
         <hr/>
         <router-link to="'/vditor">vditor测试</router-link>
+        <hr/>
+        <router-link to="'/compTest">组件测试</router-link>
     </div>
 </template>
 
