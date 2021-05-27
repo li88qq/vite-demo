@@ -1,34 +1,48 @@
-import * as path from 'path'
-import {loadDev} from './build/utils'
+import vue from '@vitejs/plugin-vue'
+import {resolve} from 'path'
+import {ConfigEnv, loadEnv, UserConfig} from 'vite'
 
-//获取当前环境
-loadDev()
+function pathResolve(dir) {
+    return resolve(process.cwd(), '.', dir);
+}
 
-module.exports  = {
-    alias: {
-        '/@/': path.resolve(__dirname, './src')
-    },
-    port: process.env.VITE_PORT,
-
-    cssPreprocessOptions: {
-        less: {
-            modifyVars: {
-                '@my-color': 'red',
-                '@height-100': '100%'
-            },
-            javascriptEnabled: true,
+export default ({command, mode}: ConfigEnv): UserConfig => {
+    const root = process.cwd()
+    const env = loadEnv(mode, root)
+    const port = parseInt(env['VITE_PORT'])
+    return {
+        plugins: [vue()],
+        server: {
+            port: port,
+            proxy: {
+                '/api': {
+                    target: 'http://www.li88qq.com',
+                    changeOrigin: true,
+                    rewrite: path => path.replace(/^\/api/, '/api')
+                }
+            }
         },
-    },
-    optimizeDeps:{
-      include:['mockjs']
-    },
-    proxy: {
-        // string shorthand
-        // '/api': 'http://127.0.0.1:8080'
-        '/api': {
-            target: 'http://www.li88qq.com',
-            changeOrigin: true,
-            rewrite: path => path.replace(/^\/api/, '/api')
+        resolve: {
+            alias: [
+                {
+                    find: /\/@\//,
+                    replacement: pathResolve('src') + '/',
+                },
+            ]
+        },
+        css: {
+            preprocessorOptions: {
+                less: {
+                    modifyVars: {
+                        '@my-color': 'red',
+                        '@height-100': '100%'
+                    },
+                    javascriptEnabled: true,
+                },
+            },
+        },
+        optimizeDeps: {
+            include: ['mockjs']
         }
     }
-};
+}
